@@ -10,8 +10,15 @@ jobs:
   update-versions:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       
       - name: Generate version metadata
         run: |
           python scripts/generate_versions.py
+      
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(version): update version metadata [skip ci]"
+          file_pattern: 'versions.json'
+          commit_author: GitHub Action <actions@github.com>   
