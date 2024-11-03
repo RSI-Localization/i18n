@@ -1,0 +1,95 @@
+{
+  "generated": "2024-11-03T17:07:10.473745",
+  "languages": {
+    "ko": {
+      "website": {
+        "common": {
+          "files": {
+            "/navbar.json": {
+              "version": "20241103.44136fa3",
+              "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            "/footer.json": {
+              "version": "20241103.e3b0c442",
+              "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "/vehicles.json": {
+              "version": "20241103.44136fa3",
+              "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            },
+            "/brands.json": {
+              "version": "20241103.e3b0c442",
+              "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            }
+          }
+        },
+        "modules": {
+          "cookies": {
+            "files": {
+              "/index.json": {
+                "version": "20241103.44136fa3",
+                "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+              }
+            }
+          },
+          "dmca": {
+            "files": {
+              "/index.json": {
+                "version": "20241103.44136fa3",
+                "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+              }
+            }
+          },
+          "tos": {
+            "files": {
+              "/index.json": {
+                "version": "20241103.44136fa3",
+                "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+              }
+            }
+          },
+          "legal": {
+            "files": {
+              "/index.json": {
+                "version": "20241103.44136fa3",
+                "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+              }
+            }
+          },
+          "eula": {
+            "files": {
+              "/index.json": {
+                "version": "20241103.44136fa3",
+                "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+              }
+            }
+          }
+        },
+        "hash": "15c70c8671d553fcfe1f3ac6215a729f46e939670dd3537a5831e900d0acbc43",
+        "version": "20241103.15c70c86"
+      },
+      "launcher": {
+        "common": {
+          "files": {
+            "/base.json": {
+              "version": "20241103.44136fa3",
+              "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+            }
+          }
+        },
+        "hash": "b8a4120408a76e335316de9a0c139291da653eaffab9cb1406bccf615a0ff495",
+        "version": "20241103.b8a41204"
+      }
+    }
+  },
+  "meta": {
+    "supportedLanguages": [
+      "ko"
+    ],
+    "defaultLanguage": "en",
+    "services": [
+      "website",
+      "launcher"
+    ]
+  }
+}
