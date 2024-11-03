@@ -19,6 +19,6 @@ jobs:
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(version): update version metadata [skip ci]"
+          commit_message: "chore(versions): update version metadata [skip ci]"
           file_pattern: 'versions.json'
           commit_author: GitHub Action <actions@github.com>   
