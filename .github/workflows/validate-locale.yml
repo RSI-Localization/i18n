@@ -1,4 +1,5 @@
 name: JSON File Validation
+
 on:
   pull_request_target:
     branches: [ main ]
@@ -8,19 +9,47 @@ on:
 permissions:
   contents: read
   pull-requests: write
+  checks: write
+  statuses: write
+
+env:
+  PYTHON_VERSION: '3.x'
+  VALIDATION_SCRIPT: 'scripts/validate_json.py'
+  RESULTS_FILE: 'validation-results.json'
+  TARGET_PATH: 'languages/'
+  FILE_ENCODING: 'utf-8'
+  MAX_FILE_SIZE: '10485760'  # 10MB in bytes
+  PARALLEL_WORKERS: '4'
+  ARTIFACT_RETENTION_DAYS: 5
 
 jobs:
   validate-json:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install typing-extensions
 
       - name: Get changed files
         id: changed-files
@@ -36,67 +65,65 @@ jobs:
             const jsonFiles = files
               .filter(file => 
                 file.status !== 'removed' && 
-                file.filename.endsWith('.json')
+                file.filename.endsWith('.json') &&
+                file.filename.startsWith('${{ env.TARGET_PATH }}')
               )
               .map(file => file.filename);
             
             console.log('All changed files:', files.map(f => f.filename));
             console.log('JSON files to validate:', jsonFiles);
             
+            if (jsonFiles.length === 0) {
+              core.notice('No JSON files were modified in this PR');
+            }
+            
             core.setOutput('files', jsonFiles.join('\n'));
             core.exportVariable('CHANGED_FILES', jsonFiles.join('\n'));
             core.setOutput('json_file_count', jsonFiles.length);
 
-      - name: Skip if no JSON files changed
-        if: steps.changed-files.outputs.json_file_count == 0
-        run: |
-          echo "No JSON files were modified in this PR"
-          exit 0
-
-      - name: Create validation script directory
-        run: mkdir -p scripts
-
-      - name: Copy validation script
-        run: |
-          cat > scripts/validate_json.py << 'EOF'
-          # Content of the Python validator script will be inserted here
-          EOF
-
-      - name: Validate JSON files
+      - name: Run validation script
         id: validation
+        timeout-minutes: 5
+        continue-on-error: true
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: |
-          echo "Changed JSON files to validate: $CHANGED_FILES"
-          if python scripts/validate_json.py; then
-            echo "status=success" >> $GITHUB_OUTPUT
-          else
-            echo "status=failure" >> $GITHUB_OUTPUT
-            echo "::error::JSON validation failed"
-            exit 1
-          fi
+          python ${{ env.VALIDATION_SCRIPT }}
+          echo "script_exit_code=$?" >> $GITHUB_ENV
 
-      - name: Create PR Comment
-        if: always()
+      - name: Process validation results
+        id: process-results
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
             let comment = '## JSON Validation Results\n\n';
+            let validationFailed = false;
+            let results = null;
             
             try {
-              const results = JSON.parse(fs.readFileSync('validation-results.json', 'utf8'));
+              if (!fs.existsSync('${{ env.RESULTS_FILE }}')) {
+                throw new Error('Validation results file not found');
+              }
+              
+              const scriptExitCode = parseInt(process.env.script_exit_code || '0');
+              results = JSON.parse(fs.readFileSync('${{ env.RESULTS_FILE }}', 'utf8'));
               const summary = results.summary;
               
               if (summary.total === 0) {
                 comment += '⚠️ No JSON files were found in this PR for validation.\n';
               } else {
-                // Add summary section
                 comment += `### Summary\n`;
                 comment += `- Total files validated: ${summary.total}\n`;
                 comment += `- ✅ Passed: ${summary.passed}\n`;
-                comment += `- ❌ Failed: ${summary.failed}\n\n`;
+                comment += `- ❌ Failed: ${summary.failed}\n`;
+                if (summary.skipped > 0) {
+                  comment += `- ⏭️ Skipped: ${summary.skipped}\n`;
+                }
+                comment += '\n';
                 
-                // Add detailed results
                 if (summary.failed > 0) {
+                  validationFailed = true;
                   comment += `### Detailed Results\n\n`;
                   for (const result of results.results) {
                     if (result.success) {
@@ -113,11 +140,20 @@ jobs:
                   }
                 }
               }
+
+              // Check if script execution failed
+              if (scriptExitCode !== 0) {
+                validationFailed = true;
+              }
+              
             } catch (error) {
-              comment += '⚠️ Error occurred while loading validation results.\n';
+              validationFailed = true;
+              comment += '### ❌ Validation Process Error\n\n';
               comment += `Error details: ${error.message}\n`;
+              comment += '\nPlease check the workflow logs for more information.\n';
             }
             
+            // Post comment to PR
             await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
@@ -125,8 +161,37 @@ jobs:
               body: comment
             });
 
-      - name: Check validation result
-        if: steps.validation.outputs.status == 'failure'
-        run: |
-          echo "Validation failed"
-          exit 1
+            // Set step output
+            core.setOutput('validation_failed', validationFailed);
+            core.setOutput('validation_results', results ? JSON.stringify(results) : '{}');
+            
+            // Fail the workflow if validation failed
+            if (validationFailed) {
+              core.setFailed('JSON validation failed or encountered errors');
+            }
+
+      - name: Upload validation results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: validation-results
+          path: ${{ env.RESULTS_FILE }}
+          retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
+
+      - name: Add PR labels
+        if: always()
+        uses: actions/github-script@v7
+        continue-on-error: true
+        with:
+          script: |
+            const validationFailed = core.getOutput('validation_failed') === 'true';
+            const labels = validationFailed ? ['json-validation-failed'] : ['json-validation-passed'];
+            
+            // Remove opposite label if it exists
+            const oppositeLabel = validationFailed ? 'json-validation-passed' : 'json-validation-failed';
+            try {
+              await github.rest.issues.removeLabel({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: oppositeLabel
