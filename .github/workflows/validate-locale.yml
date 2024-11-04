@@ -18,7 +18,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
@@ -59,7 +59,124 @@ jobs:
       - name: Copy validation script
         run: |
           cat > scripts/validate_json.py << 'EOF'
-          # Content of the Python validator script will be inserted here
+          import json
+          import sys
+          import os
+          from pathlib import Path
+          from typing import Dict, List, Tuple, Optional
+
+          class JsonValidator:
+              def __init__(self, root_dir: str = "."):
+                  self.root_dir = Path(root_dir)
+
+              def validate_json_file(self, file_path: str) -> Tuple[bool, List[str]]:
+                  errors = []
+                  try:
+                      path = Path(file_path)
+                      if not path.is_absolute():
+                          path = self.root_dir / path
+
+                      if not path.exists():
+                          return False, [f"File not found: {file_path}"]
+
+                      with path.open('r', encoding='utf-8') as f:
+                          json.load(f)
+                      return True, []
+                  except json.JSONDecodeError as e:
+                      line_col = f"line {e.lineno}, column {e.colno}"
+                      errors.append(f"JSON syntax error at {line_col}: {str(e)}")
+                      return False, errors
+                  except Exception as e:
+                      errors.append(f"File reading error: {str(e)}")
+                      return False, errors
+
+              def validate_files(self, files: List[str]) -> Dict:
+                  results = []
+                  has_errors = False
+
+                  files = list(set(filter(None, files)))
+                  
+                  if not files:
+                      return {
+                          "has_errors": False,
+                          "results": [],
+                          "summary": {
+                              "total": 0,
+                              "passed": 0,
+                              "failed": 0
+                          }
+                      }
+
+                  passed = 0
+                  failed = 0
+                  
+                  for file_path in sorted(files):
+                      is_valid, errors = self.validate_json_file(file_path)
+                      
+                      if not is_valid:
+                          has_errors = True
+                          failed += 1
+                          results.append({
+                              "file": file_path,
+                              "errors": errors,
+                              "success": False
+                          })
+                      else:
+                          passed += 1
+                          results.append({
+                              "file": file_path,
+                              "success": True
+                          })
+
+                  return {
+                      "has_errors": has_errors,
+                      "results": results,
+                      "summary": {
+                          "total": len(files),
+                          "passed": passed,
+                          "failed": failed
+                      }
+                  }
+
+          def main():
+              changed_files = os.environ.get('CHANGED_FILES', '')
+              files = [f.strip() for f in changed_files.split('\n') if f.strip()]
+              
+              if not files:
+                  print("No JSON files to validate")
+                  result = {
+                      "has_errors": False,
+                      "results": [],
+                      "summary": {"total": 0, "passed": 0, "failed": 0}
+                  }
+              else:
+                  print(f"Found {len(files)} files to validate:")
+                  for f in files:
+                      print(f"  - {f}")
+                      
+                  validator = JsonValidator()
+                  result = validator.validate_files(files)
+                  
+                  print("\nValidation Summary:")
+                  print(f"Total files: {result['summary']['total']}")
+                  print(f"Passed: {result['summary']['passed']}")
+                  print(f"Failed: {result['summary']['failed']}")
+                  
+                  if result['has_errors']:
+                      print("\nErrors found:")
+                      for file_result in result['results']:
+                          if not file_result['success']:
+                              print(f"\n{file_result['file']}:")
+                              for error in file_result['errors']:
+                                  print(f"  - {error}")
+
+              with open('validation-results.json', 'w', encoding='utf-8') as f:
+                  json.dump(result, f, indent=2, ensure_ascii=False)
+              
+              sys.exit(1 if result["has_errors"] else 0)
+
+          if __name__ == "__main__":
+              main()
           EOF
 
       - name: Validate JSON files
@@ -89,13 +206,11 @@ jobs:
               if (summary.total === 0) {
                 comment += '⚠️ No JSON files were found in this PR for validation.\n';
               } else {
-                // Add summary section
                 comment += `### Summary\n`;
                 comment += `- Total files validated: ${summary.total}\n`;
                 comment += `- ✅ Passed: ${summary.passed}\n`;
                 comment += `- ❌ Failed: ${summary.failed}\n\n`;
                 
-                // Add detailed results
                 if (summary.failed > 0) {
                   comment += `### Detailed Results\n\n`;
                   for (const result of results.results) {
