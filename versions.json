@@ -1,5 +1,5 @@
 {
-  "generated": "2024-11-05T14:12:53.549956+00:00",
+  "generated": "2024-11-05T16:12:05.655990+00:00",
   "languages": {
     "ko": {
       "website": {
@@ -22,8 +22,8 @@
               "hash": "4880148c2f4cd068071dbb19e4808706bb63cb159303aa4dc45955ba17f3d180"
             },
             "/brands.json": {
-              "version": "20241105.e6a27123",
-              "hash": "e6a27123a99ea5ee25cab3ccd506f8847e57809e5248a151185fa907ce70f9b8"
+              "version": "20241105.38f19084",
+              "hash": "38f19084cf2a07ee93077a3c0e6cda7f5c799ff7ca08d2bd9e193f6ae8eaf2e2"
             }
           }
         },
@@ -187,8 +187,8 @@
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships.json": {
-                "version": "20241105.44136fa3",
-                "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                "version": "20241105.b7d0debb",
+                "hash": "b7d0debbe375c6008046d22b11a3e287bd376fdfbefb1d5b41acc862baeedbf4"
               },
               "/subscriptions.json": {
                 "version": "20241105.44136fa3",
@@ -859,8 +859,8 @@
             }
           }
         },
-        "hash": "141c4b554d77e33f03490116a6558a9c23656ef21f378a23c49f301874a2a04b",
-        "version": "20241105.141c4b55"
+        "hash": "3f9694ad2032a73c3fc634834de23a52b200962d391eff305e915f1b83acff45",
+        "version": "20241105.3f9694ad"
       },
       "launcher": {
         "common": {
