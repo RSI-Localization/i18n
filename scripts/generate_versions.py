@@ -1,7 +1,7 @@
 import os
 import json
 import hashlib
-from datetime import datetime
+from datetime import datetime, UTC
 from typing import Dict, Optional, Any
 from dataclasses import dataclass
 
@@ -24,11 +24,7 @@ class VersionManager:
         self._hash_cache = {}  # Cache for file hashes
 
     def _load_previous_versions(self) -> Optional[Dict]:
-        """Load previous version information from file
-        
-        Returns:
-            Optional[Dict]: Previous version data or None if file doesn't exist or is invalid
-        """
+        """Load previous version information from file"""
         try:
             if not os.path.exists(VERSION_FILE):
                 return None
@@ -42,17 +38,7 @@ class VersionManager:
             return None
 
     def _calculate_file_hash(self, file_path: str) -> str:
-        """Calculate and cache file hash using SHA-256
-        
-        Args:
-            file_path (str): Path to the file
-            
-        Returns:
-            str: Hexadecimal hash string
-            
-        Raises:
-            FileProcessError: If file reading or hash calculation fails
-        """
+        """Calculate and cache file hash using SHA-256"""
         if file_path in self._hash_cache:
             return self._hash_cache[file_path]
 
@@ -68,16 +54,7 @@ class VersionManager:
             raise FileProcessError(f"Failed to calculate hash for {file_path}: {e}")
 
     def _get_previous_file_info(self, lang: str, service: str, file_path: str) -> Optional[Dict]:
-        """Find file information from previous version data
-        
-        Args:
-            lang (str): Language code
-            service (str): Service name
-            file_path (str): File path
-            
-        Returns:
-            Optional[Dict]: Previous file information or None if not found
-        """
+        """Find file information from previous version data"""
         if not self.previous_versions or "languages" not in self.previous_versions:
             return None
 
@@ -98,38 +75,17 @@ class VersionManager:
         return None
 
     def generate_file_version(self, file_hash: str, previous_version: Optional[str] = None) -> str:
-        """Generate or maintain file version based on hash
-        
-        Args:
-            file_hash (str): File hash
-            previous_version (Optional[str]): Previous version string
-            
-        Returns:
-            str: Version string in format 'YYYYMMDD.hash8'
-        """
+        """Generate or maintain file version based on hash"""
         if previous_version:
             prev_hash = previous_version.split('.')[-1]
             if prev_hash == file_hash[:8]:
                 return previous_version
 
-        timestamp = datetime.utcnow().strftime('%Y%m%d')
+        timestamp = datetime.now(UTC).strftime('%Y%m%d')
         return f"{timestamp}.{file_hash[:8]}"
 
     def process_directory(self, dir_path: str, base_path: str, lang: str, service: str) -> Dict[str, FileInfo]:
-        """Process all JSON files in a directory
-        
-        Args:
-            dir_path (str): Directory path to process
-            base_path (str): Base path for relative path calculation
-            lang (str): Language code
-            service (str): Service name
-            
-        Returns:
-            Dict[str, FileInfo]: Dictionary of file information
-            
-        Raises:
-            DirectoryProcessError: If directory processing fails
-        """
+        """Process all JSON files in a directory"""
         files_data = {}
         try:
             for root, _, files in os.walk(dir_path):
@@ -158,32 +114,17 @@ class VersionManager:
             raise DirectoryProcessError(f"Failed to process directory {dir_path}: {e}")
 
     def _get_relative_path(self, base_path: str, full_path: str) -> str:
-        """Calculate relative path from base path
-        
-        Args:
-            base_path (str): Base directory path
-            full_path (str): Full file path
-            
-        Returns:
-            str: Relative path starting with '/'
-        """
+        """Calculate relative path from base path"""
         rel_path = os.path.relpath(full_path, base_path)
         return '/' + rel_path.replace('\\', '/')
 
     def _calculate_service_hash(self, service_data: Dict) -> str:
-        """Calculate hash for entire service
-        
-        Args:
-            service_data (Dict): Service data including all files
-            
-        Returns:
-            str: Hexadecimal hash string
-        """
+        """Calculate hash for entire service"""
         service_hash = hashlib.sha256()
 
         def add_files_to_hash(data: Dict):
             if isinstance(data, dict):
-                for key, value in sorted(data.items()):  # Sort for consistent hash
+                for key, value in sorted(data.items()):
                     if key == "files":
                         for _, file_info in sorted(value.items()):
                             service_hash.update(file_info["hash"].encode())
@@ -194,13 +135,9 @@ class VersionManager:
         return service_hash.hexdigest()
 
     def generate_versions(self) -> Dict[str, Any]:
-        """Generate complete version information
-        
-        Returns:
-            Dict[str, Any]: Complete version information
-        """
+        """Generate complete version information"""
         versions = {
-            "generated": datetime.utcnow().isoformat(),
+            "generated": datetime.now(UTC).isoformat(),
             "languages": {},
             "meta": {
                 "supportedLanguages": [],
@@ -233,16 +170,7 @@ class VersionManager:
         return versions
 
     def _process_service(self, lang_path: str, lang: str, service: str) -> Optional[Dict]:
-        """Process individual service directory
-        
-        Args:
-            lang_path (str): Language directory path
-            lang (str): Language code
-            service (str): Service name
-            
-        Returns:
-            Optional[Dict]: Service data or None if service directory doesn't exist
-        """
+        """Process individual service directory"""
         service_path = os.path.join(lang_path, service)
         if not os.path.exists(service_path):
             return None
@@ -275,12 +203,12 @@ class VersionManager:
             standalone_path = os.path.join(service_path, 'standalone')
             if os.path.exists(standalone_path):
                 standalone_data = {}
-                for service_name in os.listdir(standalone_path):
-                    service_dir_path = os.path.join(standalone_path, service_name)
-                    if os.path.isdir(service_dir_path):
-                        files = self.process_directory(service_dir_path, service_dir_path, lang, service)
+                for standalone in os.listdir(standalone_path):
+                    standalone_dir_path = os.path.join(standalone_path, standalone)
+                    if os.path.isdir(standalone_dir_path):
+                        files = self.process_directory(standalone_dir_path, standalone_dir_path, lang, service)
                         if files:
-                            standalone_data[service_name] = {"files": files}
+                            standalone_data[standalone] = {"files": files}
 
                 if standalone_data:
                     service_data["standalone"] = standalone_data
@@ -300,14 +228,7 @@ class VersionManager:
         return service_data
 
     def save_versions(self, versions: Dict):
-        """Save version information to file
-        
-        Args:
-            versions (Dict): Version information to save
-            
-        Raises:
-            VersionSaveError: If saving fails
-        """
+        """Save version information to file"""
         try:
             with open(VERSION_FILE, 'w', encoding='utf-8') as f:
                 json.dump(versions, f, indent=2, ensure_ascii=False)
@@ -339,11 +260,8 @@ def main():
         versions = version_manager.generate_versions()
         version_manager.save_versions(versions)
         print("versions.json has been generated successfully.")
-    except VersionManagementError as e:
-        print(f"Error: {e}")
-        raise
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        print(f"Error generating versions.json: {str(e)}")
         raise
 
 if __name__ == '__main__':
