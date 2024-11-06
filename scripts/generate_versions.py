@@ -2,11 +2,11 @@ import os
 import json
 import hashlib
 from datetime import datetime, UTC
-from typing import Dict, Optional, Any
+from typing import Dict, Optional, Any, Tuple
 from dataclasses import dataclass
 
 # Constants
-HASH_CHUNK_SIZE = 8192  # Chunk size for file hash calculation
+HASH_CHUNK_SIZE = 8192
 VERSION_FILE = 'versions.json'
 SUPPORTED_SERVICES = ["website", "launcher"]
 DEFAULT_LANGUAGE = "en"
@@ -18,10 +18,10 @@ class FileInfo:
     hash: str
 
 class VersionManager:
-    """Class responsible for managing version information"""
     def __init__(self):
         self.previous_versions = self._load_previous_versions()
-        self._hash_cache = {}  # Cache for file hashes
+        self._hash_cache = {}
+        self._version_cache = {}
 
     def _load_previous_versions(self) -> Optional[Dict]:
         """Load previous version information from file"""
@@ -45,7 +45,7 @@ class VersionManager:
         try:
             hasher = hashlib.sha256()
             with open(file_path, 'rb') as f:
-                while chunk := f.read(HASH_CHUNK_SIZE):
+                for chunk in iter(lambda: f.read(HASH_CHUNK_SIZE), b''):
                     hasher.update(chunk)
             file_hash = hasher.hexdigest()
             self._hash_cache[file_path] = file_hash
@@ -55,6 +55,10 @@ class VersionManager:
 
     def _get_previous_file_info(self, lang: str, service: str, file_path: str) -> Optional[Dict]:
         """Find file information from previous version data"""
+        cache_key = f"{lang}_{service}_{file_path}"
+        if cache_key in self._version_cache:
+            return self._version_cache[cache_key]
+
         if not self.previous_versions or "languages" not in self.previous_versions:
             return None
 
@@ -62,27 +66,42 @@ class VersionManager:
             path_parts = file_path.split('/')
             versions = self.previous_versions["languages"][lang][service]
 
+            result = None
             if 'common' in path_parts:
-                return versions["common"]["files"].get(file_path)
+                result = versions["common"]["files"].get(file_path)
             elif 'modules' in path_parts:
                 module_name = path_parts[path_parts.index('modules') + 1]
-                return versions["modules"][module_name]["files"].get(file_path)
+                result = versions["modules"][module_name]["files"].get(file_path)
             elif 'standalone' in path_parts and service == 'website':
                 standalone_name = path_parts[path_parts.index('standalone') + 1]
-                return versions["standalone"][standalone_name]["files"].get(file_path)
+                result = versions["standalone"][standalone_name]["files"].get(file_path)
+
+            self._version_cache[cache_key] = result
+            return result
         except (KeyError, AttributeError):
             return None
-        return None
 
     def generate_file_version(self, file_hash: str, previous_version: Optional[str] = None) -> str:
         """Generate or maintain file version based on hash"""
-        if previous_version:
-            prev_hash = previous_version.split('.')[-1]
+        if previous_version and '.' in previous_version:
+            prev_date, prev_hash = previous_version.split('.')
             if prev_hash == file_hash[:8]:
                 return previous_version
 
         timestamp = datetime.now(UTC).strftime('%Y%m%d')
         return f"{timestamp}.{file_hash[:8]}"
+
+    def _get_latest_version(self, files_data: Dict[str, FileInfo]) -> str:
+        """Find the latest version among files in a module"""
+        return max((info['version'] for info in files_data.values()), default=None)
+
+    def _process_files(self, dir_path: str, base_path: str, lang: str, service: str) -> Tuple[Dict[str, FileInfo], str]:
+        """Process JSON files in a directory and return files data with version"""
+        files_data = self.process_directory(dir_path, base_path, lang, service)
+        if files_data:
+            latest_version = self._get_latest_version(files_data)
+            return files_data, latest_version
+        return {}, None
 
     def process_directory(self, dir_path: str, base_path: str, lang: str, service: str) -> Dict[str, FileInfo]:
         """Process all JSON files in a directory"""
@@ -134,6 +153,69 @@ class VersionManager:
         add_files_to_hash(service_data)
         return service_hash.hexdigest()
 
+    def _process_directory_group(self, directory: str, lang: str, service: str) -> Optional[Dict]:
+        """Process a group of directories (common, modules, or standalone)"""
+        if not os.path.exists(directory):
+            return None
+
+        result = {}
+        if os.path.isdir(directory):
+            for item in os.listdir(directory):
+                item_path = os.path.join(directory, item)
+                if os.path.isdir(item_path):
+                    files, version = self._process_files(item_path, item_path, lang, service)
+                    if files:
+                        result[item] = {
+                            "files": files,
+                            "version": version
+                        }
+        return result if result else None
+
+    def _process_service(self, lang_path: str, lang: str, service: str) -> Optional[Dict]:
+        """Process individual service directory"""
+        service_path = os.path.join(lang_path, service)
+        if not os.path.exists(service_path):
+            return None
+
+        service_data = {}
+
+        # Process common directory
+        common_path = os.path.join(service_path, 'common')
+        if os.path.exists(common_path):
+            files, version = self._process_files(common_path, common_path, lang, service)
+            if files:
+                service_data["common"] = {
+                    "files": files,
+                    "version": version
+                }
+
+        # Process modules directory
+        modules_path = os.path.join(service_path, 'modules')
+        modules_data = self._process_directory_group(modules_path, lang, service)
+        if modules_data:
+            service_data["modules"] = modules_data
+
+        # Process standalone directory (website only)
+        if service == 'website':
+            standalone_path = os.path.join(service_path, 'standalone')
+            standalone_data = self._process_directory_group(standalone_path, lang, service)
+            if standalone_data:
+                service_data["standalone"] = standalone_data
+
+        if service_data:
+            service_hash = self._calculate_service_hash(service_data)
+            previous_service_info = (
+                self.previous_versions.get("languages", {})
+                .get(lang, {})
+                .get(service, {})
+            ) if self.previous_versions else {}
+
+            previous_service_version = previous_service_info.get("version")
+            service_data["hash"] = service_hash
+            service_data["version"] = self.generate_file_version(service_hash, previous_service_version)
+
+        return service_data
+
     def generate_versions(self) -> Dict[str, Any]:
         """Generate complete version information"""
         versions = {
@@ -168,64 +250,6 @@ class VersionManager:
                     continue
 
         return versions
-
-    def _process_service(self, lang_path: str, lang: str, service: str) -> Optional[Dict]:
-        """Process individual service directory"""
-        service_path = os.path.join(lang_path, service)
-        if not os.path.exists(service_path):
-            return None
-
-        service_data = {}
-
-        # Process common directory
-        common_path = os.path.join(service_path, 'common')
-        if os.path.exists(common_path):
-            files = self.process_directory(common_path, common_path, lang, service)
-            if files:
-                service_data["common"] = {"files": files}
-
-        # Process modules directory
-        modules_path = os.path.join(service_path, 'modules')
-        if os.path.exists(modules_path):
-            modules_data = {}
-            for module in os.listdir(modules_path):
-                module_path = os.path.join(modules_path, module)
-                if os.path.isdir(module_path):
-                    files = self.process_directory(module_path, module_path, lang, service)
-                    if files:
-                        modules_data[module] = {"files": files}
-
-            if modules_data:
-                service_data["modules"] = modules_data
-
-        # Process standalone directory (website only)
-        if service == 'website':
-            standalone_path = os.path.join(service_path, 'standalone')
-            if os.path.exists(standalone_path):
-                standalone_data = {}
-                for standalone in os.listdir(standalone_path):
-                    standalone_dir_path = os.path.join(standalone_path, standalone)
-                    if os.path.isdir(standalone_dir_path):
-                        files = self.process_directory(standalone_dir_path, standalone_dir_path, lang, service)
-                        if files:
-                            standalone_data[standalone] = {"files": files}
-
-                if standalone_data:
-                    service_data["standalone"] = standalone_data
-
-        if service_data:
-            service_hash = self._calculate_service_hash(service_data)
-            previous_service_info = (
-                self.previous_versions.get("languages", {})
-                .get(lang, {})
-                .get(service, {})
-            ) if self.previous_versions else {}
-
-            previous_service_version = previous_service_info.get("version")
-            service_data["hash"] = service_hash
-            service_data["version"] = self.generate_file_version(service_hash, previous_service_version)
-
-        return service_data
 
     def save_versions(self, versions: Dict):
         """Save version information to file"""
