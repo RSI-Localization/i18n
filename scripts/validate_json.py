@@ -57,8 +57,13 @@ class JsonValidator:
         Returns:
             Tuple of (is_valid, error_messages)
         """
+        # Check for empty content
+        if not content or content.strip() == "":
+            return False, ["JSON file is empty"]
+            
         try:
-            json.loads(content)
+            json_data = json.loads(content)
+            # Empty object {} is allowed, but empty content is not
             return True, []
         except json.JSONDecodeError as e:
             return False, [f"JSON syntax error: {str(e)}"]
