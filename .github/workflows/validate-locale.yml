@@ -1,234 +1,197 @@
-import json
-import sys
-import os
-import logging
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from dataclasses import dataclass
-from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+name: JSON File Validation
 
-@dataclass
-class ValidatorConfig:
-    """Configuration for JSON validator"""
-    encoding: str = 'utf-8'
-    max_file_size: int = 10 * 1024 * 1024  # 10MB
-    parallel_workers: int = 4
+on:
+  pull_request_target:
+    branches: [ main ]
+    paths:
+      - 'languages/**/*.json'
 
-class JsonValidator:
-    def __init__(
-        self, 
-        root_dir: str = ".", 
-        config: Optional[ValidatorConfig] = None,
-        logger: Optional[logging.Logger] = None
-    ):
-        """
-        Initialize JSON validator with configuration.
-        
-        Args:
-            root_dir: Root directory for relative file paths
-            config: Validator configuration
-            logger: Custom logger instance
-        """
-        self.root_dir = Path(root_dir)
-        self.config = config or ValidatorConfig()
-        self.logger = logger or self._setup_logger()
-        
-    def _setup_logger(self) -> logging.Logger:
-        """Set up default logger"""
-        logger = logging.getLogger(__name__)
-        handler = logging.StreamHandler()
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
-        logger.setLevel(logging.INFO)
-        return logger
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
+  statuses: write
 
-    def is_json_file(self, file_path: str) -> bool:
-        """Check if the file has .json extension"""
-        return Path(file_path).suffix.lower() == '.json'
+env:
+  PYTHON_VERSION: '3.x'
+  VALIDATION_SCRIPT: 'scripts/validate_json.py'
+  RESULTS_FILE: 'validation-results.json'
+  TARGET_PATH: 'languages/'
+  FILE_ENCODING: 'utf-8'
+  MAX_FILE_SIZE: '10485760'  # 10MB in bytes
+  PARALLEL_WORKERS: '4'
+  ARTIFACT_RETENTION_DAYS: 5
 
-    def validate_json_content(self, content: str) -> Tuple[bool, List[str]]:
-        """
-        Validate JSON string content.
-        
-        Args:
-            content: JSON string to validate
+jobs:
+  validate-json:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install typing-extensions
+
+      - name: Get changed files
+        id: changed-files
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: files } = await github.rest.pulls.listFiles({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            });
             
-        Returns:
-            Tuple of (is_valid, error_messages)
-        """
-        # Check for empty content
-        if not content or content.strip() == "":
-            return False, ["JSON file is empty"]
+            const jsonFiles = files
+              .filter(file => 
+                file.status !== 'removed' && 
+                file.filename.endsWith('.json') &&
+                file.filename.startsWith('${{ env.TARGET_PATH }}')
+              )
+              .map(file => file.filename);
             
-        try:
-            json_data = json.loads(content)
-            # Empty object {} is allowed, but empty content is not
-            return True, []
-        except json.JSONDecodeError as e:
-            return False, [f"JSON syntax error: {str(e)}"]
-
-    def validate_json_file(self, file_path: str) -> Tuple[bool, List[str]]:
-        """
-        Validate a JSON file for syntax errors.
-        
-        Args:
-            file_path: Path to the JSON file to validate
+            console.log('All changed files:', files.map(f => f.filename));
+            console.log('JSON files to validate:', jsonFiles);
             
-        Returns:
-            Tuple of (is_valid, error_messages)
-        """
-        self.logger.debug(f"Validating file: {file_path}")
-        errors = []
-        
-        try:
-            path = Path(file_path)
-            if not path.is_absolute():
-                path = self.root_dir / path
-
-            if not path.exists():
-                return False, [f"File not found: {file_path}"]
-                
-            if not self.is_json_file(file_path):
-                return False, [f"Not a JSON file: {file_path}"]
-
-            if path.stat().st_size > self.config.max_file_size:
-                return False, [f"File exceeds maximum size of {self.config.max_file_size} bytes: {file_path}"]
-
-            with path.open('r', encoding=self.config.encoding) as f:
-                content = f.read()
-                return self.validate_json_content(content)
-
-        except json.JSONDecodeError as e:
-            line_col = f"line {e.lineno}, column {e.colno}"
-            error_msg = f"JSON syntax error at {line_col}: {str(e)}"
-            self.logger.error(f"Validation failed for {file_path}: {error_msg}")
-            errors.append(error_msg)
-            return False, errors
+            if (jsonFiles.length === 0) {
+              core.notice('No JSON files were modified in this PR');
+            }
             
-        except Exception as e:
-            error_msg = f"File reading error: {str(e)}"
-            self.logger.error(f"Error processing {file_path}: {error_msg}")
-            errors.append(error_msg)
-            return False, errors
+            core.setOutput('files', jsonFiles.join('\n'));
+            core.exportVariable('CHANGED_FILES', jsonFiles.join('\n'));
+            core.setOutput('json_file_count', jsonFiles.length);
 
-    def validate_files(self, files: List[str]) -> Dict:
-        """
-        Validate multiple JSON files in parallel and return results.
-        
-        Args:
-            files: List of file paths to validate
+      - name: Run validation script
+        id: validation
+        timeout-minutes: 5
+        continue-on-error: true
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python ${{ env.VALIDATION_SCRIPT }}
+          echo "script_exit_code=$?" >> $GITHUB_ENV
+
+      - name: Process validation results
+        id: process-results
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let comment = '## JSON Validation Results\n\n';
+            let validationFailed = false;
+            let results = null;
             
-        Returns:
-            Dictionary containing validation results and summary
-        """
-        # Filter out empty strings and deduplicate files
-        files = list(set(filter(None, files)))
-        
-        if not files:
-            return {
-                "has_errors": False,
-                "results": [],
-                "summary": {
-                    "total": 0,
-                    "passed": 0,
-                    "failed": 0,
-                    "skipped": 0
+            try {
+              if (!fs.existsSync('${{ env.RESULTS_FILE }}')) {
+                throw new Error('Validation results file not found');
+              }
+              
+              const scriptExitCode = parseInt(process.env.script_exit_code || '0');
+              results = JSON.parse(fs.readFileSync('${{ env.RESULTS_FILE }}', 'utf8'));
+              const summary = results.summary;
+              
+              if (summary.total === 0) {
+                comment += '⚠️ No JSON files were found in this PR for validation.\n';
+              } else {
+                comment += `### Summary\n`;
+                comment += `- Total files validated: ${summary.total}\n`;
+                comment += `- ✅ Passed: ${summary.passed}\n`;
+                comment += `- ❌ Failed: ${summary.failed}\n`;
+                if (summary.skipped > 0) {
+                  comment += `- ⏭️ Skipped: ${summary.skipped}\n`;
                 }
-            }
-
-        results = []
-        has_errors = False
-        passed = failed = skipped = 0
-        
-        # Filter JSON files
-        json_files = [f for f in files if self.is_json_file(f)]
-        skipped = len(files) - len(json_files)
-        
-        if skipped > 0:
-            self.logger.warning(f"Skipped {skipped} non-JSON files")
-            
-        with ThreadPoolExecutor(max_workers=self.config.parallel_workers) as executor:
-            future_to_file = {
-                executor.submit(self.validate_json_file, file): file 
-                for file in sorted(json_files)
-            }
-            
-            for future in as_completed(future_to_file):
-                file_path = future_to_file[future]
-                is_valid, errors = future.result()
+                comment += '\n';
                 
-                if not is_valid:
-                    has_errors = True
-                    failed += 1
-                    results.append({
-                        "file": file_path,
-                        "errors": errors,
-                        "success": False
-                    })
-                else:
-                    passed += 1
-                    results.append({
-                        "file": file_path,
-                        "success": True
-                    })
+                if (summary.failed > 0) {
+                  validationFailed = true;
+                  comment += `### Detailed Results\n\n`;
+                  for (const result of results.results) {
+                    if (result.success) {
+                      comment += `#### ✅ \`${result.file}\`\n`;
+                      comment += 'JSON syntax validation passed successfully.\n\n';
+                    } else {
+                      comment += `#### ❌ \`${result.file}\`\n`;
+                      comment += 'The following issues were found:\n';
+                      result.errors.forEach(error => {
+                        comment += `- ${error}\n`;
+                      });
+                      comment += '\n';
+                    }
+                  }
+                }
+              }
 
-        return {
-            "has_errors": has_errors,
-            "results": results,
-            "summary": {
-                "total": len(json_files),
-                "passed": passed,
-                "failed": failed,
-                "skipped": skipped
+              // Check if script execution failed
+              if (scriptExitCode !== 0) {
+                validationFailed = true;
+              }
+              
+            } catch (error) {
+              validationFailed = true;
+              comment += '### ❌ Validation Process Error\n\n';
+              comment += `Error details: ${error.message}\n`;
+              comment += '\nPlease check the workflow logs for more information.\n';
             }
-        }
+            
+            // Post comment to PR
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
 
-def main():
-    # Configure logging
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(levelname)s - %(message)s'
-    )
-    logger = logging.getLogger(__name__)
+            // Set step output
+            core.setOutput('validation_failed', validationFailed);
+            core.setOutput('validation_results', results ? JSON.stringify(results) : '{}');
+            
+            // Fail the workflow if validation failed
+            if (validationFailed) {
+              core.setFailed('JSON validation failed or encountered errors');
+            }
 
-    # Get changed files from environment variable
-    changed_files = os.environ.get('CHANGED_FILES', '')
-    files = [f.strip() for f in changed_files.split('\n') if f.strip()]
-    
-    if not files:
-        logger.info("No files to validate")
-        result = {
-            "has_errors": False,
-            "results": [],
-            "summary": {"total": 0, "passed": 0, "failed": 0, "skipped": 0}
-        }
-    else:
-        logger.info(f"Found {len(files)} files to validate")
-        
-        validator = JsonValidator()
-        result = validator.validate_files(files)
-        
-        # Print summary to console
-        logger.info("\nValidation Summary:")
-        logger.info(f"Total files: {result['summary']['total']}")
-        logger.info(f"Passed: {result['summary']['passed']}")
-        logger.info(f"Failed: {result['summary']['failed']}")
-        logger.info(f"Skipped: {result['summary']['skipped']}")
-        
-        if result['has_errors']:
-            logger.error("\nErrors found:")
-            for file_result in result['results']:
-                if not file_result['success']:
-                    logger.error(f"\n{file_result['file']}:")
-                    for error in file_result['errors']:
-                        logger.error(f"  - {error}")
+      - name: Upload validation results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: validation-results
+          path: ${{ env.RESULTS_FILE }}
+          retention-days: ${{ env.ARTIFACT_RETENTION_DAYS }}
 
-    # Write results to file
-    with open('validation-results.json', 'w', encoding='utf-8') as f:
-        json.dump(result, f, indent=2, ensure_ascii=False)
-    
-    sys.exit(1 if result["has_errors"] else 0)
-
-if __name__ == "__main__":
-    main()
+      - name: Add PR labels
+        if: always()
+        uses: actions/github-script@v7
+        continue-on-error: true
+        with:
+          script: |
+            const validationFailed = core.getOutput('validation_failed') === 'true';
+            const labels = validationFailed ? ['json-validation-failed'] : ['json-validation-passed'];
+            
+            // Remove opposite label if it exists
+            const oppositeLabel = validationFailed ? 'json-validation-passed' : 'json-validation-failed';
+            try {
+              await github.rest.issues.removeLabel({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: oppositeLabel
