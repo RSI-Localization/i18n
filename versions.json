@@ -1,5 +1,5 @@
 {
-  "generated": "2024-11-11T08:12:24.519369+00:00",
+  "generated": "2024-11-11T12:39:41.491094+00:00",
   "languages": {
     "ko": {
       "website": {
@@ -14,8 +14,8 @@
               "hash": "37475a64d9b738742f742dc548ac3fd0ab5106edd8fa565f17542f515551f268"
             },
             "/side-panel.json": {
-              "version": "20241111.efbfcc5c",
-              "hash": "efbfcc5c68eb7140bfdf24f455284702dd3a4042e5fb0c118dfaa4d926707706"
+              "version": "20241111.a74cc680",
+              "hash": "a74cc680addd462b7e77ae1c852feff95f18c546d15c5f1db4d5c4fef859f602"
             },
             "/vehicles.json": {
               "version": "20241111.fa623b5f",
@@ -203,8 +203,8 @@
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/redeem-code.json": {
-                "version": "20241111.44136fa3",
-                "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                "version": "20241111.c607729b",
+                "hash": "c607729b6c5110dc0136ff3ef1991867be6817bc3e9c7d6215072cc90a352029"
               },
               "/ships/nova-tank.json": {
                 "version": "20241111.44136fa3",
@@ -684,11 +684,11 @@
           "main": {
             "files": {
               "/index.json": {
-                "version": "20241111.242dc256",
-                "hash": "242dc2564cd87215baaebfe3d84e59f6f25f7672da20e1c7e6d8f0fcd4ce143f"
+                "version": "20241111.0dfed8eb",
+                "hash": "0dfed8eb1cb00d06665ea6935a39def481c9b2583540b5c22a45a26f2a1986b5"
               }
             },
-            "version": "20241111.242dc256"
+            "version": "20241111.0dfed8eb"
           },
           "responsible-disclosure": {
             "files": {
@@ -890,8 +890,8 @@
             "version": "20241111.44136fa3"
           }
         },
-        "hash": "85baa57d2ef4c7e979eb3e60e9fd822c3841bd76f2225067a0a87fd976272eda",
-        "version": "20241111.85baa57d"
+        "hash": "b1a61fbc3fa346480b3ac507238844af90b55fa697e0cb6e0b651d3aad56f0e7",
+        "version": "20241111.b1a61fbc"
       },
       "launcher": {
         "common": {
