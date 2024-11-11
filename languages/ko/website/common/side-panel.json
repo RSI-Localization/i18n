@@ -2,10 +2,11 @@
     "Sign in to your RSI account": "RSI 계정으로 로그인",
     "Back to previous step": "이전 단계로 가기",
     "No account?": "계정이 없으신가요?",
-    "Create one!": "계정 만들기!",
+    "Create one!": "계정을 만드세요!",
     "Remember me": "계정정보 저장",
     "Forgot password?": "비밀번호를 잊으셨나요?",
     "Sign in": "로그인",
+    "SIGN IN": "로그인",
     "Forgot your password": "비밀번호 찾기",
     "Email address": "이메일 주소",
     "Contact customer support": "고객센터에 연락하기",
@@ -77,6 +78,6 @@
     "Refer a friend": "친구 추천",
     "Copy link": "링크 복사",
     "Learn about our referral program": "레퍼럴 프로그램에 대해 알아보기",
-    "Got a item to redeem?": "교환할 아이템이 있으신가요?",
+    "Got an item to redeem?": "교환할 아이템이 있으신가요?",
     "Redeem a code": "교환하기"
 }
