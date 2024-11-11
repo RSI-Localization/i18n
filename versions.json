@@ -1,21 +1,21 @@
 {
-  "generated": "2024-11-11T12:39:41.491094+00:00",
+  "generated": "2024-11-11T15:29:53.062782+00:00",
   "languages": {
     "ko": {
       "website": {
         "common": {
           "files": {
             "/navbar.json": {
-              "version": "20241111.e4981c6b",
-              "hash": "e4981c6b19461c8588fd5541da3cb6ad6ab81ebe2656b43702b3c7c221a626cd"
+              "version": "20241111.366bd01a",
+              "hash": "366bd01a6bcb29a504f3bfbc38708ea22cfc9f978f46c72b6efb0c0dc3e25346"
             },
             "/footer.json": {
               "version": "20241111.37475a64",
               "hash": "37475a64d9b738742f742dc548ac3fd0ab5106edd8fa565f17542f515551f268"
             },
             "/side-panel.json": {
-              "version": "20241111.a74cc680",
-              "hash": "a74cc680addd462b7e77ae1c852feff95f18c546d15c5f1db4d5c4fef859f602"
+              "version": "20241111.eaed9c75",
+              "hash": "eaed9c755e19dfcd1b17910885891ca89cba3ce30a277534623639ee155ce501"
             },
             "/vehicles.json": {
               "version": "20241111.fa623b5f",
@@ -105,8 +105,8 @@
           "store": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
-                "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                "version": "20241111.bf4ab027",
+                "hash": "bf4ab0270aa8ad6afb1a95529b39a56629922d9336ae889c21182ad8f13e7be8"
               },
               "/pledge.json": {
                 "version": "20241111.ac106bb1",
@@ -137,7 +137,7 @@
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.adaf14e1"
+            "version": "20241111.bf4ab027"
           },
           "connect": {
             "files": {
@@ -195,16 +195,16 @@
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships.json": {
-                "version": "20241111.c956efdb",
-                "hash": "c956efdb8b4565844e909ddc60f465764713dfda83529e16845fff4c0b9fbe8a"
+                "version": "20241111.e16a4187",
+                "hash": "e16a41877d000c17ed4c09eb94302a6eebc836d6862db66d010fcf85ab398ded"
               },
               "/subscriptions.json": {
-                "version": "20241111.44136fa3",
-                "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+                "version": "20241111.fa142fd6",
+                "hash": "fa142fd6011082b5b5d157ebf5e255bb55cbefa4cc1d51415e0a4137dae96628"
               },
               "/redeem-code.json": {
-                "version": "20241111.c607729b",
-                "hash": "c607729b6c5110dc0136ff3ef1991867be6817bc3e9c7d6215072cc90a352029"
+                "version": "20241111.ff4e7e9a",
+                "hash": "ff4e7e9ac6ed7b69f2431a4cb9c905f4568210e47d46f7b9b77bcc71fe97db30"
               },
               "/ships/nova-tank.json": {
                 "version": "20241111.44136fa3",
@@ -643,7 +643,7 @@
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.c956efdb"
+            "version": "20241111.ff4e7e9a"
           },
           "fankit": {
             "files": {
@@ -890,8 +890,8 @@
             "version": "20241111.44136fa3"
           }
         },
-        "hash": "b1a61fbc3fa346480b3ac507238844af90b55fa697e0cb6e0b651d3aad56f0e7",
-        "version": "20241111.b1a61fbc"
+        "hash": "412369969a22342753fe546d6e6fe0673d8ce123ec70304ffa11f2972ba33498",
+        "version": "20241111.41236996"
       },
       "launcher": {
         "common": {
