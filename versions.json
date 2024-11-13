@@ -1,5 +1,5 @@
 {
-  "generated": "2024-11-13T13:30:16.937922+00:00",
+  "generated": "2024-11-13T22:16:04.343939+00:00",
   "languages": {
     "ko": {
       "website": {
@@ -199,8 +199,8 @@
                 "hash": "e16a41877d000c17ed4c09eb94302a6eebc836d6862db66d010fcf85ab398ded"
               },
               "/subscriptions.json": {
-                "version": "20241113.089a1f96",
-                "hash": "089a1f9635083bc5d0d0e357181d4cb874f4242976b159aa8bc2ce828216aaf4"
+                "version": "20241113.0c24c5bf",
+                "hash": "0c24c5bfc0526c35ea4b93a73a915d29c0d3519f02919d6ec2545220a20c020c"
               },
               "/redeem-code.json": {
                 "version": "20241113.ff4e7e9a",
@@ -890,8 +890,8 @@
             "version": "20241113.44136fa3"
           }
         },
-        "hash": "94d11a498d13a03559912195bdfddfae524825c29a891034a3563e2f8b655caa",
-        "version": "20241113.94d11a49"
+        "hash": "30c55f2d66db63ecf1222f7456ebd884c607514aca1d3c455e4f2e3c1da2b20d",
+        "version": "20241113.30c55f2d"
       },
       "launcher": {
         "common": {
