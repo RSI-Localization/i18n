@@ -83,23 +83,19 @@ class VersionManager:
 
     def generate_file_version(self, file_hash: str, previous_version: Optional[str] = None) -> str:
         """Generate or maintain file version based on hash"""
-        # 이전 버전이 없는 경우에만 새로운 타임스탬프 생성
         if not previous_version:
             timestamp = datetime.now(UTC).strftime('%Y%m%d')
             return f"{timestamp}.{file_hash[:8]}"
             
-        # 이전 버전이 있는 경우
         if '.' in previous_version:
             prev_date, prev_hash = previous_version.split('.')
             if prev_hash == file_hash[:8]:
                 # 해시가 같으면 이전 버전 유지
                 return previous_version
             else:
-                # 해시가 다르면 새로운 타임스탬프로 업데이트
                 timestamp = datetime.now(UTC).strftime('%Y%m%d')
                 return f"{timestamp}.{file_hash[:8]}"
                 
-        # 잘못된 형식의 이전 버전인 경우 새로운 타임스탬프 생성
         timestamp = datetime.now(UTC).strftime('%Y%m%d')
         return f"{timestamp}.{file_hash[:8]}"
 
