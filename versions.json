@@ -1,907 +1,907 @@
 {
-  "generated": "2024-11-11T15:29:53.062782+00:00",
+  "generated": "2024-11-13T13:30:16.937922+00:00",
   "languages": {
     "ko": {
       "website": {
         "common": {
           "files": {
             "/navbar.json": {
-              "version": "20241111.366bd01a",
+              "version": "20241113.366bd01a",
               "hash": "366bd01a6bcb29a504f3bfbc38708ea22cfc9f978f46c72b6efb0c0dc3e25346"
             },
             "/footer.json": {
-              "version": "20241111.37475a64",
+              "version": "20241113.37475a64",
               "hash": "37475a64d9b738742f742dc548ac3fd0ab5106edd8fa565f17542f515551f268"
             },
             "/side-panel.json": {
-              "version": "20241111.eaed9c75",
+              "version": "20241113.eaed9c75",
               "hash": "eaed9c755e19dfcd1b17910885891ca89cba3ce30a277534623639ee155ce501"
             },
             "/vehicles.json": {
-              "version": "20241111.fa623b5f",
+              "version": "20241113.fa623b5f",
               "hash": "fa623b5f7ac1193c7a503d3bf9df629bfe5c84dd1191d5d709b4f479882d578d"
             },
             "/brands.json": {
-              "version": "20241111.38f19084",
+              "version": "20241113.38f19084",
               "hash": "38f19084cf2a07ee93077a3c0e6cda7f5c799ff7ca08d2bd9e193f6ae8eaf2e2"
             }
           },
-          "version": "20241111.fa623b5f"
+          "version": "20241113.fa623b5f"
         },
         "modules": {
           "account": {
             "files": {
               "/buy-back-pledges.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/settings.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/security.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/rsvp.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/pledge-shipments.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/reset.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/referral-program.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/roms.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/addresses.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/profile.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/billing.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/pledges.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/concierge.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/organization/invitations.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/organization/applications.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/copy/ptu.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "store": {
             "files": {
               "/index.json": {
-                "version": "20241111.bf4ab027",
+                "version": "20241113.bf4ab027",
                 "hash": "bf4ab0270aa8ad6afb1a95529b39a56629922d9336ae889c21182ad8f13e7be8"
               },
               "/pledge.json": {
-                "version": "20241111.ac106bb1",
+                "version": "20241113.ac106bb1",
                 "hash": "ac106bb17965f335d6387cf6033a7efbe6339a4798bcbb295042b909f12c220e"
               },
               "/pledge/cart.json": {
-                "version": "20241111.adaf14e1",
+                "version": "20241113.adaf14e1",
                 "hash": "adaf14e16db3f0a49fdeb5140f73022415681f6136bf342e025f71ca17d1896e"
               },
               "/pledge/browse.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/pledge/browse/merchandise.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/pledge/browse/extras.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/pledge/browse/paints.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/pledge/browse/game-packages.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.bf4ab027"
+            "version": "20241113.bf4ab027"
           },
           "connect": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "cookies": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "download": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "comm-link": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "star-citizen": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/play-now.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "pledge": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships.json": {
-                "version": "20241111.e16a4187",
+                "version": "20241113.e16a4187",
                 "hash": "e16a41877d000c17ed4c09eb94302a6eebc836d6862db66d010fcf85ab398ded"
               },
               "/subscriptions.json": {
-                "version": "20241111.fa142fd6",
-                "hash": "fa142fd6011082b5b5d157ebf5e255bb55cbefa4cc1d51415e0a4137dae96628"
+                "version": "20241113.089a1f96",
+                "hash": "089a1f9635083bc5d0d0e357181d4cb874f4242976b159aa8bc2ce828216aaf4"
               },
               "/redeem-code.json": {
-                "version": "20241111.ff4e7e9a",
+                "version": "20241113.ff4e7e9a",
                 "hash": "ff4e7e9ac6ed7b69f2431a4cb9c905f4568210e47d46f7b9b77bcc71fe97db30"
               },
               "/ships/nova-tank.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/drake-cutlass.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/railen.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/spirit.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/galaxy.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/anvil-gladiator.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/crusader-ares.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/redeemer.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/890-jump.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/aegis-avenger.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/reclaimer.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/spartan.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/misc-endeavor.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/600i.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/terrapin.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/drake-kraken.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/misc-prospector.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/crusader-mercury-star-runner.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/hurricane.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/tumbril-ranger.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/hammerhead.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/cyclone.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/scorpius.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/liberator.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/rsi-mantis.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/argo.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/mule.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/vanduul-blade.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/reliant.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/origin-g12.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/zeus-mk-ii.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/anvil-hornet.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/nomad.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/gladius.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/aopoa-santokyai.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/misc-freelancer.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/scythe.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/anvil-arrow.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/anvil-hornet-mkii.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/arrastra.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/aegis-idris.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/mirai-pulse.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/expanse.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/origin-m50.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/defender.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/eclipse.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/drake-vulture.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/aegis-nautilus.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/orion.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/anvil-ballista.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/ursa.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/argo-mole.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/carrack.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/hull.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/rsi-aurora.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/vanguard.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/razor.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/hawk.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/cutter.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/syulen.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/stv.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/legionnaire.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/starlancer.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/origin-100.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/rsi-constellation.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/aegis-javelin.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/hoverquad.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/perseus.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/esperia-glaive.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/aegis-retaliator.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/argo-srv.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/anvil-valkyrie.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/drake-buccaneer.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/misc-starfarer.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/drake-caterpillar.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/starliner.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/prowler.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/drake-corsair.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/fury.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/atls.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/drake-dragonfly.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/herald.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/400i.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/centurion.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/talon.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/origin-300.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/merchantman.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/pioneer.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/khartu.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/p72-archimedes.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/nox.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/polaris.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/crucible.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/roc.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/crusader-starlifter.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/csv.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/anvil-pisces.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/ironclad.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/odyssey.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/mustang.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/storm.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/raft.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/85x.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/sabre.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/vulcan.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/rsi-apollo.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/x1.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/p52-merlin.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/ships/lightning.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.ff4e7e9a"
+            "version": "20241113.ff4e7e9a"
           },
           "fankit": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "electronic-access": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "dmca": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "citizens": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "main": {
             "files": {
               "/index.json": {
-                "version": "20241111.0dfed8eb",
+                "version": "20241113.0dfed8eb",
                 "hash": "0dfed8eb1cb00d06665ea6935a39def481c9b2583540b5c22a45a26f2a1986b5"
               }
             },
-            "version": "20241111.0dfed8eb"
+            "version": "20241113.0dfed8eb"
           },
           "responsible-disclosure": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "tos": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "citizencon": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "patch-notes": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "legal": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "funding-goals": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "privacy": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "press": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/archive.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "playnow": {
             "files": {
               "/connect.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "referral-program": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "acknowledgements": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "community": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/devtracker.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/orgs.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/leaderboards/all.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/leaderboards/top.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "eula": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "subscribers": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/videos.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/jumppoint.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/wallpapers.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "ship-matrix": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           },
           "playstarcitizen": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           }
         },
         "standalone": {
           "community-hub": {
             "files": {
               "/index.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/discover.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/events.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/livestream.json": {
-                "version": "20241111.44136fa3",
+                "version": "20241113.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241111.44136fa3"
+            "version": "20241113.44136fa3"
           }
         },
-        "hash": "412369969a22342753fe546d6e6fe0673d8ce123ec70304ffa11f2972ba33498",
-        "version": "20241111.41236996"
+        "hash": "94d11a498d13a03559912195bdfddfae524825c29a891034a3563e2f8b655caa",
+        "version": "20241113.94d11a49"
       },
       "launcher": {
         "common": {
           "files": {
             "/base.json": {
-              "version": "20241111.44136fa3",
+              "version": "20241113.44136fa3",
               "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
             }
           },
-          "version": "20241111.44136fa3"
+          "version": "20241113.44136fa3"
         },
         "hash": "b8a4120408a76e335316de9a0c139291da653eaffab9cb1406bccf615a0ff495",
         "version": "20241104.b8a41204"
