@@ -4,6 +4,7 @@
     "Access Pass": "이용권",
     "The base-level subscription gives you access to Subscriber-exclusive monthly perks and rewards. Available as an access pass or recurring plan.": "센츄리온 구독으로 구독자 전용 월간 혜택과 보상을 받아보세요. 일회성 이용권 또는 정기 구독으로 이용 가능합니다.",
     "Select Your Duration": "구독 기간 선택",
+    "Duration": "기간",
     "Monthly Plan": "월간 구독",
     "Annual Plan": "연간 구독",
     "per month": "월간",
@@ -53,7 +54,7 @@
     "JUMP POINT MAGAZINE": "점프 포인트 매거진",
     "Get exclusive behind-the-scenes access to development in": " ",
     "Jump Point": "점프 포인트",
-    "magazine. This bi-monthly digital publication is packed with everything Star Citizen, including exclusive access to the ship-design process, loction concepts, in-depth technology breaakdowns, exclusive lore from the Narrative team, and more.": " 매거진에서 개발 이야기를 독점으로 만나보세요. 격월마다 발행되는 전자 잡지는 함선 설계 과정, 장소 컨셉, 심층 기술 분석, 내러티브 팀의 독점 로어 등 스타 시티즌의 모든 것을 담고 있습니다.",
+    "magazine. This bi-monthly digital publication is packed with everything Star Citizen, including exclusive access to the ship-design process, location concepts, in-depth technology breakdowns, exclusive lore from the Narrative team, and more.": " 매거진에서 개발 이야기를 독점으로 만나보세요. 격월마다 발행되는 전자 잡지는 함선 설계 과정, 장소 컨셉, 심층 기술 분석, 내러티브 팀의 로어 등 스타 시티즌의 모든 것을 담고 있습니다.",
     "THE VAULT": "더 볼트",
     "Dive into": " ",
     "The Vault": "더 볼트",
@@ -64,7 +65,6 @@
     "Spectrum forum and chatroom.": "이 있는 스펙트럼 포럼과 채팅방에서 같은 생각을 가진 플레이어들 및 CIG 직원들과 소통하세요.",
     "EARLY ACCESS TO EVENT TICKETS": "이벤트 티켓 우선 구매",
     "Be first in line for tickets to all CIG-organized in-person events, including our globe-trotting annual celebration of Star Citizen and its community, CitizenCon.": "전 세계를 돌며 열리는 스타 시티즌과 커뮤니티의 연례 축제인 시티즌콘을 포함하여 CIG가 주최하는 오프라인 이벤트의 티켓을 가장 먼저 구매하실 수 있습니다.",
-    "Best Value": "최고의 가치",
     "Double up on some of the best perks with an enhanced Imperator subscription. Available as an access pass or recurring plan.": "임페레이터 구독으로 최고의 혜택을 두 배로 누리세요. 일회성 이용권 또는 정기 구독으로 이용 가능합니다.",
     "2x": "2x",
     "TWO": "2개의 ",
@@ -95,5 +95,7 @@
     "Your subscription selection:": "선택한 구독:",
     "Buy subscription": "구독 구매",
     "1 Month Access Pass": "1개월 이용권",
-    "1 Year Access Pass": "1년 이용권"
+    "1 Year Access Pass": "1년 이용권",
+    "You already have items in your cart": "이미 장바구니에 아이템이 있습니다",
+    "Please check out before adding a subscription. If you want to proceed, your cart will be automatically emptied.": "구독을 추가하기 전에 장바구니를 확인해주세요. 진행하기 버튼을 누르면 장바구니가 자동으로 비워집니다."
 }
