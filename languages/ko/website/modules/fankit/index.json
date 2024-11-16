@@ -1,1 +1,25 @@
-{}
+{
+    "RSI Fankit": "RSI 팬키트",
+    "\"Star Citizen lives by the support it receives from the community, and that support has been loud and clear.\"": "\"스타 시티즌이 지금까지 이어올 수 있었던 것은 커뮤니티의 든든한 지원 덕분입니다.\"",
+    "-Chris Roberts":  "-크리스 로버츠",
+    "This fankit has official assets and guidance to help Citizens share their enthusiasm and engagement with the Star Citizen universe. The kit contains official digital            assets such as:": "이 팬키트는 시민 여러분이 스타 시티즌 세계에 대한 열정을 마음껏 표현하고 공유할 수 있도록 공식 에셋과 가이드를 제공합니다. 키트에는 다음과 같은 공식 디지털 에셋이 포함되어 있습니다.",
+    "Concept art": "컨셉 아트",
+    "Logos": "로고",
+    "Screenshots": "스크린샷",
+    "Wallpapers (desktop and mobile)": "배경화면(데스크탑 및 모바일)",
+    "3D Models": "3D 모델",
+    "Artwork": "아트웍",
+    "Social media banners & icons": "소셜 미디어 배너 및 아이콘",
+    "Please carefully read our terms of use and service, as the assets within the Fankit are subject to basic requirements outlined therein. Once you have acknowledged and accepted the terms, the Fankit will begin downloading.": "팬키트에 포함된 에셋을 사용하려면 약관을 준수해야 합니다. 약관에 동의하고 수락한 후에만 다운로드 받을 수 있습니다.",
+    "login*": "로그인*",
+    "* You need to be logged in to access your Fankit Agreement": "* 팬킷에 관한 약정에 동의하려면 로그인이 필요합니다",
+    "download fankit*": "팬키트 다운로드*",
+    "* Your download will start after accepting": "* 약관 동의 후 다운로드 할 수 있습니다.",
+    "Want to know more about the Fankit, its contents, or the terms associated with their use? Head to the Knowledge Base to check out our comprehensive FAQ.": "팬키트에 대해 더 알고 싶으신가요? 팬키트 약관 및 컨텐츠에 대한 자세한 내용은 지식 베이스를 확인해주세요.",
+    "Tell me more": "더 알아보기",
+    "FANKIT AGREEMENT": "팬키트 약관",
+    "Accept*": "동의*",
+    "or ": "또는 ",
+    "decline": "거부"
+
+}
