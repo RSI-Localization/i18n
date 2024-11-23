@@ -1,10 +1,14 @@
 {
-  "generated": "2024-11-23T02:22:43.735469+00:00",
+  "generated": "2024-11-23T10:56:39.671295+00:00",
   "languages": {
     "ko": {
       "website": {
         "common": {
           "files": {
+            "/browser-extension.json": {
+              "version": "20241123.fadfe0fb",
+              "hash": "fadfe0fb49e622220c515e7bc52ac4aa0fc4e4783c77c733dbdfbfa0962f7ceb"
+            },
             "/navbar.json": {
               "version": "20241123.003fc4f7",
               "hash": "003fc4f779697b1d594c9ee1644e3539100cd66cc9e65a546d492fb7cacb9623"
@@ -14,8 +18,12 @@
               "hash": "5be6c5eaa98c5bd57bd6f1c0f4d45fc5365232c9727334aaa2b8c61f6becbd2f"
             },
             "/side-panel.json": {
-              "version": "20241123.faaceb87",
-              "hash": "faaceb87a9c6184e202765a046cec8ad92f679cd8d457e1b0e246ab8437784ce"
+              "version": "20241123.a92d2b1d",
+              "hash": "a92d2b1d8a5b20d90668a8aa54e90ac99c9e1e22428592bf9334a12a746a4cfc"
+            },
+            "/error.json": {
+              "version": "20241123.ad6a965b",
+              "hash": "ad6a965b69b6076401523083bdb1f400ade1458dd9a66444805d0767f754510f"
             },
             "/store.json": {
               "version": "20241123.15f7d9ed",
@@ -34,7 +42,7 @@
               "hash": "38f19084cf2a07ee93077a3c0e6cda7f5c799ff7ca08d2bd9e193f6ae8eaf2e2"
             }
           },
-          "version": "20241123.faaceb87"
+          "version": "20241123.fadfe0fb"
         },
         "modules": {
           "account": {
@@ -50,6 +58,10 @@
               "/settings.json": {
                 "version": "20241123.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+              },
+              "/activate.json": {
+                "version": "20241123.c5f8e979",
+                "hash": "c5f8e979d757117d9d5269f6ecfa1441ec3de04369324473ac1219c9a9858979"
               },
               "/security.json": {
                 "version": "20241123.44136fa3",
@@ -108,7 +120,7 @@
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
             },
-            "version": "20241123.44136fa3"
+            "version": "20241123.c5f8e979"
           },
           "store": {
             "files": {
@@ -190,6 +202,15 @@
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               },
               "/play-now.json": {
+                "version": "20241123.44136fa3",
+                "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+              }
+            },
+            "version": "20241123.44136fa3"
+          },
+          "enlist": {
+            "files": {
+              "/index.json": {
                 "version": "20241123.44136fa3",
                 "hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
               }
@@ -907,8 +928,8 @@
             "version": "20241123.44136fa3"
           }
         },
-        "hash": "ad7112afdd1375e9e8f4a3118891fe25ea93d3a6a547237942bc553a20caec6a",
-        "version": "20241123.ad7112af"
+        "hash": "ed6888b80565f16c33df5a5bf967f3868e3ab3af254bba9597b9d4b87d888509",
+        "version": "20241123.ed6888b8"
       },
       "launcher": {
         "common": {
