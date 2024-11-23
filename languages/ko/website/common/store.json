@@ -4,6 +4,7 @@
     "Relevance": "관련성",
     "Name": "이름",
     "Price": "가격",
+    "Ship Value": "함선 가격",
     "Tax Included:" : "세금 포함:",
     "Add to cart": "장바구니에 담기",
     "In stock": "재고 있음",
@@ -68,5 +69,8 @@
     "You don't own a {{0}}": "{{0}} 탑승 장비를 소유하지 않음",
     "You can buy this upgrade, but it will only be applicable on a": "이 업그레이드를 구매할 수 있지만 다음 탑승 장비에만 적용할 수 있습니다: ",
     "Tax included: {{0}}%": "세금 포함: {{0}}%",
-    "{{0}} Month Insurance": "{{0}}개월 보험"
+    "{{0}} Month Insurance": "{{0}}개월 보험",
+    "You are not logged in": "로그인을 하지 않으셨습니다",
+    "Log in to access your ships and vehicles": "여러분의 함선과 차량을 조회하려면 로그인을 해주세요",
+    "By": "제조사"
 }

@@ -15,6 +15,7 @@
     "Close": "닫기",
     "Confirm": "확인",
     "Cancel": "취소",
+    "Back": "돌아가기",
     "MORE INFO": "더보기",
     "More info": "더보기",
     "Shop Now": "구매하기",
@@ -23,8 +24,12 @@
     "REDEEM": "교환하기",
     "Submit": "전송",
     "Sign in": "로그인",
+    "Log In": "로그인",
     "Sign Out": "로그아웃",
     "More Info": "더 알아보기",
     "Upgrade": "업그레이드",
-    "view specs": "사양 보기"
+    "view specs": "사양 보기",
+    "Filter": "필터",
+    "Upgrade now": "업그레이드 하기",
+    "See all ship details": "상세 보기"
 }
