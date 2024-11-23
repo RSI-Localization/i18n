@@ -54,5 +54,19 @@
     "Load More": "더 보기",
     "Search for a ship/vehicle": "함선/차량 검색",
     "Ship Value": "함선 가격",
-    "Max crew: {0}": "최대 승무원: {0}"
+    "Max crew: {0}": "최대 승무원: {0}",
+    "- Pledge": " - 서약",
+    "- Standalone Ships": " - 독립형 함선",
+    "– Upgrade to this ship": " - 이 함선으로 업그레이드",
+    "Self-Land Hangar": "셀프-랜드 격납고",
+    "Other Options :": "기타 옵션",
+    "Suggested Pledge :": "추천 서약",
+    "View buying options": "구매 옵션 보기",
+    "Overview": "개요",
+    "Media": "미디어",
+    "Technical overview": "기술 개요",
+    "Variants matrix": "변종 목록",
+    "Buying options": "구매 옵션",
+    "No ships were found": "함선을 찾을 수 없습니다.",
+    "Clear All Filters": "모든 필터 초기화"
 }

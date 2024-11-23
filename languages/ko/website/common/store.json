@@ -56,5 +56,17 @@
     "Ship value": "함선 가격",
     "Warbond Edition": "워본드 에디션",
     "Standard Edition": "스탠다드 에디션",
-    "THE": " "
+    "THE": " ",
+    "Ship Upgrade not available !": "함선 업그레이드 불가!",
+    "There is no ship upgrades available for": "다음 함선으로 업그레이드할 수 없습니다: ",
+    "Please reset your selected ship.": "함선을 다시 선택하세요.",
+    "Lowest price": "낮은 가격순",
+    "Highest price": "높은 가격순",
+    "My ships": "내 함선",
+    "All ships": "모든 함선",
+    "Ships, Variants...": "함선, 차량...",
+    "You don't own a {{0}}": "{{0}} 탑승 장비를 소유하지 않음",
+    "You can buy this upgrade, but it will only be applicable on a": "이 업그레이드를 구매할 수 있지만 다음 탑승 장비에만 적용할 수 있습니다: ",
+    "Tax included: {{0}}%": "세금 포함: {{0}}%",
+    "{{0}} Month Insurance": "{{0}}개월 보험"
 }
