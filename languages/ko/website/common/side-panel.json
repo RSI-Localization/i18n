@@ -35,7 +35,7 @@
     "Confirm Email": "이메일 확인",
     "Confirm Passowrd": "비밀번호 확인",
     "Birth Date": "생년월일",
-    "Referral Code": "리퍼럴 코드",
+    "Referral Code": "추천 코드",
     "Sign In failed. You may have entered the wrong credentials, or the account does not exist, or has not been activated. ({0})": "로그인에 실패했습니다. 잘못된 계정 정보를 입력했거나, 계정이 존재하지 않거나, 활성화되지 않은 상태일 수 있습니다. ({0})",
     "Enter the email address associated with your RSI account and you will receive the instructions to create a new password.": "RSI 계정과 연결된 이메일 주소를 입력하시면 새 비밀번호 생성을 위한 안내를 받으실 수 있습니다.",
     "Please enter a valid email address": "이메일 주소를 입력해주세요.",
@@ -74,7 +74,7 @@
     "Subscribers": "구독 공간",
     "Refer a friend": "친구 추천",
     "Copy link": "링크 복사",
-    "Learn about our referral program": "레퍼럴 프로그램에 대해 알아보기",
+    "Learn about our referral program": "추천 프로그램에 대해 알아보기",
     "Got an item to redeem?": "교환할 아이템이 있으신가요?",
     "Redeem a code": "교환하기"
 }
