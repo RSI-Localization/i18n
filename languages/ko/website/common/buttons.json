@@ -12,9 +12,11 @@
     "Checkout": "결제하기",
     "Edit": "수정",
     "Delete": "삭제",
+    "Close": "닫기",
     "Confirm": "확인",
     "Cancel": "취소",
     "MORE INFO": "더보기",
+    "More info": "더보기",
     "Shop Now": "구매하기",
     "SHOP NOW": "구매하기",
     "LEARN MORE": "더 알아보기",
@@ -22,5 +24,7 @@
     "Submit": "전송",
     "Sign in": "로그인",
     "Sign Out": "로그아웃",
-    "More Info": "더 알아보기"
+    "More Info": "더 알아보기",
+    "Upgrade": "업그레이드",
+    "view specs": "사양 보기"
 }
